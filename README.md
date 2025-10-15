@@ -1,34 +1,73 @@
-# Website Structure Diagram
+# Professional Website — Dragonfly Inn
+
+This repository contains the website for the Dragonfly Inn.
+
+## Repository contents
 
 ```
 professional-website/
-├── index.html         # Home page (hero, intro, amenities, team)
-├── about.html         # About page (info, room types, prices)
-├── gallery.html       # Gallery page (6 images)
-├── order.html         # Reservation form (different inputs in form)
-├── style.css          # same stylesheet for all the pages
-├── images/            # Imagens for the gallery or logo
+├── index.html         # Home page (hero, intro, amenities)
+├── about.html         # About page (hotel info, room types, prices)
+├── gallery.html       # Gallery page (hotel images)
+├── order.html         # Reservation form
+├── style.css          # Shared stylesheet for all pages
+├── images/            # Image assets (logo and photos)
 │   ├── logo.png
 │   ├── inn1.jpg
 │   ├── inn2.jpg
 │   ├── inn3.jpg
 │   ├── inn4.jpg
 │   ├── inn5.jpg
-│   ├── inn6.jpg
-│   └── logo.png
+│   └── inn6.jpg
+└── README.md          # This file: explanation and structure diagram
 ```
 
-**Key layout elements:**
-- All pages: `<header>`, `<nav>`, `<main class="content columns">`, `<footer>`
-- Navigation menu: `.menu` (class selector)
-- Main title: `#main-title` (ID selector)
-- Content columns: `.main-column`, `.side-column`
-- Gallery: `.image-block` (class selector)
-- Room table: `.room-table` (class selector)
-- Form: `.order-form`, `.two-column-form` (class selectors)
+## HTML structure diagram (explanation)
 
-**CSS requirements demonstrated:**
-- Class selector: `.menu`, `.main-column`, `.room-table`, etc.
-- ID selector: `#main-title`
-- Inheritance: `footer p { color: inherit; }` if this dosen't exist then the color must be defalut for the nav
-- Cascade/importance: `#main-title { color: #fff !important; }` if this dosen't exist then the color must be #
+Each HTML page follows a simple, semantic base template. The outline below describes the purpose of each section:
+
+- Document
+		- `<body>`
+			- `<header>`
+				- `.header-bar` with logo (imgagen that you can return to home page) and site name (Dragon Fly Inn`).
+				- `<nav>` with a menu for primary navigation.
+			- `<main>` — page-specific content
+				- `<section class="main-column">` — main block (text, table, form, gallery)
+				- `<aside class="side-column">` — secondary information (contact, address)
+			- `<footer>` — copyright, legal links, contact
+
+### Quick mental map
+All the pages follow the next mental map: 
+
+- Header (logo + nav)
+- Main
+	- Main column (per-page content)
+	- Aside (secondary content)
+- Footer 
+
+## Per-page notes
+Each page contains different types of information. Below is a summary of what each HTML file provides:
+
+- `index.html`:
+    - Two columns 
+	    - Hero with image and welcome text.
+	    - List of features/amenities in a list.
+
+- `about.html`:
+    - Two colummns.
+	    - Description of the inn + reasons to stay in a list.
+        - Contact info + localitation in a list
+	- Table with room types and pricing.
+
+- `gallery.html`:
+	- Am imagen block with 6 imagenes.
+
+- `order.html`:
+	- Reservation form with proper labels and basic HTML validation
+        It use differents label:
+        - Email
+        - Number 
+        - Date
+        - Text
+        - Select
+
