@@ -19,7 +19,7 @@ professional-website/
 │   ├── inn4.jpg
 │   ├── inn5.jpg
 │   └── inn6.jpg
-└── README.md          # This file: explanation and structure diagram
+
 ```
 
 ## HTML structure diagram (explanation)
