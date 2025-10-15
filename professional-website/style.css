@@ -25,16 +25,6 @@
     background: #f4e9dd;
 }
 
-
-.hero-content {
-    gap: 3em;
-    max-width: 1200px;
-    margin: 2em auto;
-    background: #8B5C2A;
-    border-radius: 32px;
-    padding: 2.5em 2em;
-}
-
 .two-column-form {
     display: grid;
     grid-template-columns: 1fr;
