@@ -223,3 +223,13 @@ button {
     font-size: 1em;
     cursor: pointer;
 }
+
+.product-detail-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+}
+
+h2 {
+    text-align: center;
+}
