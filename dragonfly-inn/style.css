@@ -52,6 +52,13 @@
     margin-top: 2em;
 }
 
+.side-column a {
+    display: inline-block;
+}
+.side-column a + a {
+    margin-left: 0.75em; /* spacing between buttons */
+}
+
 
 body {
     font-family: Arial, sans-serif;
