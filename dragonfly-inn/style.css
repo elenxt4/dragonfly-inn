@@ -1,8 +1,8 @@
 #main-title {
-    color: #fff !important;
+    color: #222 !important;
     font-size: 2.2em;
     letter-spacing: 2px;
-    font-family: 'Garamond', 'Georgia', serif;
+    font-family: 'Garamond';
     text-align: center;
     margin: 0;
 }
@@ -56,7 +56,7 @@
     display: inline-block;
 }
 .side-column a + a {
-    margin-left: 0.75em; /* spacing between buttons */
+    margin-left: 0.75em; /* space between buttons */
 }
 
 
