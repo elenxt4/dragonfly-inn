@@ -7,7 +7,6 @@
     margin: 0 auto;
     padding: 0 1em;
     gap: 1em;
-    position: relative; /* container for possible absolute logo on wide screens */
 }
 
 /* add breathing room between the main title and the menu */
@@ -21,6 +20,10 @@
     font-family: 'Garamond';
     text-align: center;
     margin: 0;
+}
+.header-bar #main-title {
+    color: white;
+
 }
 .room-table {
     width: 100%;
@@ -59,7 +62,7 @@
     background: #f9f9f9;
     padding: 1em;
     border-radius: 8px;
-    margin-top: 2em;
+    width: 100%;
 }
 
 .side-column a {
@@ -79,7 +82,6 @@ body {
 
 header {
     background: #8B5C2A;
-    color: #fff;
     padding: 0.8em 0;
 }
 
@@ -116,7 +118,6 @@ footer {
 .content {
     display: flex;
     flex-direction: column;
-    gap: 2em;
     max-width: 90%;
     margin: 5%;
     background: #fff;
@@ -127,12 +128,21 @@ footer {
 
 .content.columns {
     flex-direction: row; 
+    display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
-
 .content.columns .side-column {
     flex: 1 1 320px; /* side column narrower */
     max-width: 380px;
+    width: 100%;
+}
+
+.content.columns .section-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0; /* removes extra space from previous section */
 }
 
 .main-column {
@@ -224,6 +234,7 @@ button {
 
 .product-detail-image {
     max-width: 400px;
+    min-width: 100px;
     width: 100%;
     height: auto;
 }
@@ -262,4 +273,31 @@ h2 {
         padding: 0.35em 0.6em;
         display: inline-block;
     }
+
+    .content.columns {
+        flex-direction: column;
+    }
+
+    .content.columns > * { /* * means all in content.columns have same padding */
+        padding-left: 1em;
+        padding-right: 1em;
+        box-sizing: border-box;
+    }
+
+    .content.columns .side-column{
+        width: 100%;
+        flex: none;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
+
+.inn-image {
+    width: 100%;
+    border-radius: 6px;
+    border: 2px solid #eee;
+    object-fit: cover;
+}
+
+
