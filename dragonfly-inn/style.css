@@ -1,3 +1,18 @@
+/* Header bar: centered container that lays out title/menu */
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1em;
+    gap: 1em;
+}
+
+/* add breathing room between the main title and the menu */
+.header-bar + nav {
+    margin-top: 0.75rem;
+}
 #main-title {
     color: #222 !important;
     font-size: 2.2em;
@@ -5,6 +20,10 @@
     font-family: 'Garamond';
     text-align: center;
     margin: 0;
+}
+.header-bar #main-title {
+    color: white;
+
 }
 .room-table {
     width: 100%;
@@ -30,19 +49,13 @@
     grid-template-columns: 1fr;
     gap: 1em;
 }
+
+/* form y two rows */
 .two-column-form .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* collapse to 1 to make it responsive */
     column-gap: 2em;
     row-gap: 1em;
-}
-
-.two-column-form .form-row > div {
-    display: flex;
-    flex-direction: column;
-}
-.two-column-form textarea {
-    min-height: 60px;
 }
 
 .side-column {
@@ -106,33 +119,53 @@ footer {
 .menu {
     list-style: none;
     padding: 0.5em 0;
-    margin: 0 auto 0 auto;
+    margin: 0;
     display: flex;
     justify-content: center;
     max-width: 500px;
 }
 .menu li {
-    margin: 0 1em;
+    margin: 0;
 }
 .menu a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    padding: 0.25em 0.5em;
 }
-.menu a:hover {
+.menu a:hover, .menu a:focus {
     text-decoration: underline;
+    outline: none;
 }
 
 .content {
     display: flex;
-    flex-direction: row;
-    gap: 2em;
-    max-width: 1200px;
-    margin: 2em auto;
+    flex-direction: column;
+    max-width: 90%;
+    margin: 5%;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     padding: 2em;
+}
+
+.content.columns {
+    flex-direction: row; 
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.content.columns .side-column {
+    flex: 1 1 320px; /* side column narrower */
+    max-width: 380px;
+    width: 100%;
+}
+
+.content.columns .section-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0; /* removes extra space from previous section */
 }
 
 .main-column {
@@ -150,6 +183,7 @@ footer {
     border-radius: 6px;
     overflow: hidden;
     border: 2px solid #eee;
+    object-fit: cover;
 }
 
 table {
@@ -223,6 +257,7 @@ button {
 
 .product-detail-image {
     max-width: 400px;
+    min-width: 100px;
     width: 100%;
     height: auto;
 }
