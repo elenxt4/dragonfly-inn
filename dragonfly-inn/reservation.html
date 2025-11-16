@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragonfly Inn - Reservation</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 </head>
 
 <body class="reservation-page">
@@ -47,12 +49,12 @@
                         </select>
                     </div>
                     <div>
-                        <label for="guests">Number of Guests:</label>
+                        <label for="guests">Number of Guests: </label>
                         <input type="number" id="guests" name="guests" min="1" max="6" required>
                     </div>
 
                     <div>
-                        <label for="checkin">Check-in Date:</label>
+                        <label for="checkin">Check-in Date: </label>
                         <input type="date" id="checkin" name="checkin" required>
                     </div>
                     <div>
@@ -63,7 +65,9 @@
                     <label for="requests">Special Requests:</label>
                     <textarea id="requests" name="requests"></textarea>
 
-                    <button type="submit">Book Now</button>
+                    <button type="submit">
+                        <i class="bi bi-check2-square"></i> Book Now
+                    </button>
 
 
                 </form>
