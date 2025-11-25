@@ -5,29 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragonfly Inn - About</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <div class="header-bar">
-            <h1 id="main-title">Dragonfly Inn</h1>
-        </div>
-        <nav>
-            <ul class="menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="reservation.html">Reservation</a></li>
-                <li><a href="shop.html">Shop</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <h1 id="main-title">Dragonfly Inn</h1>
+                </a>
+                <input type="checkbox" id="navbarToggle" class="navbar-toggler-input">
+                <label for="navbarToggle" class="navbar-toggler-label">
+                    <span class="navbar-toggler-icon"></span>
+                </label>
+                <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                        <a class="nav-link" href="reservation.html">Reservation</a>
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
 
     <main class="content-columns">
         <h2 class="section-title">About the Dragonfly Inn</h2>
-        <div class="columns-container">
-            <section class="main-column">
+        <div class="container">
+            <div class="row">
+                <section class="col-lg-9 main-column">
                 <p>The Dragonfly Inn is a historic and picturesque inn located in the heart of Stars Hollow. Managed by
                     Lorelai Gilmore and Sookie St. James, the inn is known for its hospitality, gourmet food, and unique
                     charm.</p>
@@ -75,9 +85,10 @@
                 <a href="reservation.html">
                     <button>Make a Reservation</button>
                 </a>
-            </section>
-            <aside class="side-column">
-                <section class="noticias-global noticias">
+                </section>
+
+                <aside class="col-lg-3 side-column">
+                    <section class="noticias-global noticias">
                     <div class="inner">
                         <h2>Noticias</h2>
                         <ul class="news-list">
@@ -95,9 +106,9 @@
                                 eventos.</li>
                         </ul>
                     </div>
-                </section>
-
-            </aside>
+                    </section>
+                </aside>
+            </div>
         </div>
     </main>
 
