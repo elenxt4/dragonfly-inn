@@ -50,6 +50,7 @@ function validateForm() {
             field: 'email',
             message: 'Email is required.'
         });
+        // Validate email format
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         errors.push({
             field: 'email',

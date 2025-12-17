@@ -1,3 +1,47 @@
+:root {
+    --bg-color: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    --text-color: #222;
+    --card-bg: #ffffff;
+    --accent-1: #7a4d23;
+    --accent-2: #8B5C2A;
+    --base-font-size: 16px;
+    --section-title-color: #333;
+    --time-color: #6b4a2e;
+}
+
+body.theme-night {
+    --bg-color: linear-gradient(135deg, #0d1117 0%, #111827 100%);
+    --text-color: #e5e7eb;
+    --card-bg: #1e2a3a;
+    --accent-1: #3e1e09;
+    --accent-2: #2e1805;
+    --section-title-color: #f0f0f0;
+    --time-color: #d7e5f3;
+}
+
+body.theme-night .text-muted {
+    color: #ffffff !important;
+}
+
+body.theme-night .card.bg-light {
+    background-color: #2a3f5f !important;
+    color: #ffffff;
+}
+
+body.theme-night .card.bg-light .card-title {
+    color: #ffffff;
+}
+
+body.theme-night input.form-control {
+    background-color: #2a3f5f;
+    color: #ffffff;
+    border-color: #444;
+}
+
+body.theme-night input.form-control::placeholder {
+    color: #a8b8cc;
+}
+
 #main-title {
     color: white !important;
     font-size: 2.2em;
@@ -59,13 +103,15 @@ header .container-fluid {
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-    color: #222;
+    background: var(--bg-color);
+    color: var(--text-color);
     position: relative;
+    font-size: var(--base-font-size);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 header {
-    background: linear-gradient(90deg, #7a4d23 0%, #8B5C2A 50%, #7a4d23 100%);
+    background: linear-gradient(90deg, var(--accent-1) 0%, var(--accent-2) 50%, var(--accent-1) 100%);
     color: #fff;
     position: relative;
     z-index: 1000;
@@ -97,7 +143,7 @@ header .navbar-brand:hover {
 
 
 footer {
-    background: linear-gradient(90deg, #7a4d23 0%, #8B5C2A 50%, #7a4d23 100%); /*difuminado*/
+    background: linear-gradient(90deg, var(--accent-1) 0%, var(--accent-2) 50%, var(--accent-1) 100%); /*difuminado*/
     color: #fff;
     padding: 1em 0;
     text-align: center;
@@ -178,18 +224,25 @@ header .nav-link:focus::before {
 @media (min-width: 992px) {
     header .navbar-collapse {
         display: flex !important;
-        position: absolute;
-        right: 2em;
+        position: relative;
         z-index: 100;
     }
     
     header .navbar-nav {
         flex-direction: row;
         gap: 0.5em;
+        margin-left: auto;
     }
     
     header .navbar-brand {
-        position: static;
+        position: relative;
+        margin-right: auto;
+    }
+    
+    header .container-fluid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 
@@ -342,7 +395,7 @@ form textarea:focus {
 }
 
 p {
-    color: black;
+    color: var(--text-color);
 }
 
 footer p {
@@ -406,11 +459,24 @@ footer p {
     margin-bottom: 1em;
 }
 
+/* Theme-aware containers */
+.main-column,
+.side-column,
+.product-item,
+.noticias,
+.card:not(.bg-light):not(.bg-dark),
+.settings-panel,
+.featured-item {
+    background: var(--card-bg);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
 .btn.btn-primary,
 button {
     margin-top: 1em;
     padding: 0.7em 2em;
-    background: linear-gradient(135deg, #222 100%);
+    background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -450,17 +516,9 @@ h2 {
 
 /* Estilos para la sección de noticias con CSS3 avanzado */
 .noticias {
-    background: 
-        linear-gradient(135deg, rgba(255, 250, 240, 0.95) 0%, rgba(255, 246, 238, 0.95) 100%),
-        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(139, 92, 42, 0.02) 10px, rgba(139, 92, 42, 0.02) 20px);
-    border: 1px solid #f0e1d3;
-    padding: 1.25em;
     margin: 2em auto;
     border-radius: 8px;
     max-width: 1200px;
-    box-shadow: 
-        0 4px 6px rgba(0, 0, 0, 0.07),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
     position: relative;
     z-index: 2;
     transition: all 0.3s ease;
@@ -470,22 +528,17 @@ h2 {
     box-shadow: 
         0 8px 16px rgba(0, 0, 0, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
 }
 
 .noticias h2, .noticias h3 {
     margin-top: 0;
     color: #8B5C2A;
     text-align: left;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
     position: relative;
 }
 
 /* CSS3: Línea decorativa después del título */
 
-.noticias .inner { 
-    padding: 0 0.5em; 
-}
 
 .news-list {
     list-style: none;
@@ -511,8 +564,7 @@ h2 {
 .news-list li time {
     font-weight: bold;
     margin-right: 0.6em;
-    color: #6b4a2e;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+    color: var(--time-color);
 }
 
 
@@ -546,7 +598,7 @@ h2 {
     margin: 2em 0 1.5em 0;
     font-size: 2em;
     font-family: 'Garamond', serif;
-    color: #333;
+    color: var(--section-title-color);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     display: inline-block;
@@ -586,7 +638,6 @@ h2 {
     margin-left: 1em;
     margin-bottom: 2em;
     flex-direction: column;
-    background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
     border-radius: 12px;
     padding: 1.5em;
     box-shadow: 
@@ -611,9 +662,7 @@ h2 {
 
 .side-column {
     flex: 1;
-    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
     border-radius: 12px;
-    padding: 1.5em;
     box-shadow: 
         0 2px 8px rgba(0, 0, 0, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -731,4 +780,53 @@ h2 {
     background: #d1ecf1;
     color: #0c5460;
     border: 1px solid #bee5eb;
+}
+
+/* Theme-aware game header */
+.game-header {
+    background: linear-gradient(90deg, var(--accent-1) 0%, var(--accent-2) 50%, var(--accent-1) 100%);
+    color: #fff;
+}
+
+/* Settings panel */
+.settings-panel {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    max-width: calc(100% - 40px);
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    z-index: 12000;
+}
+
+.settings-panel.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.settings-panel .form-label,
+.settings-panel .form-check-label {
+    color: var(--text-color);
+}
+
+.settings-panel .btn-close {
+    filter: invert(0);
+}
+
+body.theme-night .settings-panel {
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+body.theme-night .settings-panel .btn-close {
+    filter: invert(1);
 }

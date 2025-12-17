@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const guessInput = document.getElementById('guess-input');
     const restartBtn = document.getElementById('restart-btn');
     
+    // si lo encuentras entoces
     if (guessBtn) {
         guessBtn.addEventListener('click', checkGuess);
     }
@@ -36,14 +37,14 @@ function initGame() {
     attempts = 0;
     guessHistory = [];
     
-    // Clear input
+    // si encuentra entnces lo pone vacio
     const guessInput = document.getElementById('guess-input');
     if (guessInput) {
         guessInput.value = '';
         guessInput.disabled = false;
     }
     
-    // Clear message
+    // Cargar el mensaje entre 1 y 100
     const message = document.getElementById('message');
     if (message) {
         message.textContent = 'Guess a number between 1 and 100';
@@ -61,8 +62,6 @@ function initGame() {
     if (guessBtn) {
         guessBtn.disabled = false;
     }
-    
-    console.log('Game initialized. Random number:', randomNumber); // For testing
 }
 
 // Check user's guess
@@ -73,14 +72,14 @@ function checkGuess() {
     
     // Validate input
     if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-        message.textContent = '❌ Please enter a valid number between 1 and 100';
+        message.textContent = ' Please enter a valid number between 1 and 100';
         message.className = 'message error';
         return;
     }
     
     // Check if number was already guessed
     if (guessHistory.includes(userGuess)) {
-        message.textContent = '⚠️ You already tried ' + userGuess + '! Try a different number.';
+        message.textContent = 'You already tried ' + userGuess + '! Try a different number.';
         message.className = 'message error';
         guessInput.value = '';
         guessInput.focus();
@@ -96,7 +95,7 @@ function checkGuess() {
     
     // Check if guess is correct
     if (userGuess === randomNumber) {
-        message.innerHTML = `🎉 <strong>Felicidades, has acertado!</strong><br>Tu descuento es <strong>DRAGONFLY10</strong><br>Deberás mostrar esto en recepción.`;
+        message.innerHTML = `<strong>Congrats, you guessed it!</strong><br>Your discount code is: <strong>DRAGONFLY10</strong>.`;
         message.className = 'message';
         message.style.backgroundColor = '#d4edda';
         message.style.color = '#155724';
@@ -106,10 +105,10 @@ function checkGuess() {
         guessInput.disabled = true;
         document.getElementById('guess-btn').disabled = true;
     } else if (userGuess < randomNumber) {
-        message.textContent = '📈 Higher! The number is greater than ' + userGuess;
+        message.textContent = ' Higher! The number is greater than ' + userGuess;
         message.className = 'message hint';
     } else {
-        message.textContent = '📉 Lower! The number is less than ' + userGuess;
+        message.textContent = 'Lower! The number is less than ' + userGuess;
         message.className = 'message hint';
     }
     
