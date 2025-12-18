@@ -17,29 +17,36 @@ body.theme-night {
     --accent-2: #2e1805;
     --section-title-color: #f0f0f0;
     --time-color: #d7e5f3;
+    --text-muted-color: #ffffff;
+    --card-light-bg: #2a3f5f;
+    --card-light-text: #ffffff;
+    --input-bg: #2a3f5f;
+    --input-text: #ffffff;
+    --input-border: #444;
+    --input-placeholder: #a8b8cc;
 }
 
 body.theme-night .text-muted {
-    color: #ffffff !important;
+    color: var(--text-muted-color) !important;
 }
 
 body.theme-night .card.bg-light {
-    background-color: #2a3f5f !important;
-    color: #ffffff;
+    background-color: var(--card-light-bg) !important;
+    color: var(--card-light-text);
 }
 
 body.theme-night .card.bg-light .card-title {
-    color: #ffffff;
+    color: var(--card-light-text);
 }
 
 body.theme-night input.form-control {
-    background-color: #2a3f5f;
-    color: #ffffff;
-    border-color: #444;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    border-color: var(--input-border);
 }
 
 body.theme-night input.form-control::placeholder {
-    color: #a8b8cc;
+    color: var(--input-placeholder);
 }
 
 #main-title {
